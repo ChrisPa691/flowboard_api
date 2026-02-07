@@ -1,17 +1,313 @@
+# ============================================================================
+# Python
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-.venv/
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
 .env
+.venv
 env/
 venv/
-*.sqlite3
-*.db
-instance/
-coverage/
-htmlcov/
-.pytest_cache/
-node_modules/
-dist/
-build/
-*.egg-info/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
 .mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Eclipse
+.project
+.pydevproject
+.cproject
+.settings/
+
+# ============================================================================
+# Operating System
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# Database
+# ============================================================================
+
+# SQLite
+*.sqlite3
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+
+# PostgreSQL
+*.pgsql
+
+# MySQL
+*.sql
+
+# Database instance folder
+instance/
+
+# ============================================================================
+# FastAPI / Web Development
+# ============================================================================
+
+# Alembic migrations (keep structure, ignore local)
+# alembic/versions/*.py  # Uncomment if you want to ignore migration files
+
+# Static files
+staticfiles/
+media/
+
+# ============================================================================
+# Docker
+# ============================================================================
+
+# Docker volumes
+docker-compose.override.yml
+.dockerignore
+
+# ============================================================================
+# Logs and temp files
+# ============================================================================
+
+# Logs
+*.log
+logs/
+*.out
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# Project specific
+# ============================================================================
+
+# Local development database
+dev.db
+
+# Uploaded files (if any)
+uploads/
+
+# Cache
+.cache/
+
+# Node modules (if using any frontend tools)
+node_modules/
+
+# ============================================================================
+# Security - NEVER COMMIT THESE
+# ============================================================================
+
+# Environment variables with secrets
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# SSH keys
+id_rsa
+id_rsa.pub
+*.ppk
+
+# API keys and secrets
+secrets/
+*.secret
