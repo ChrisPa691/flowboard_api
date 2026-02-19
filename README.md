@@ -1,52 +1,80 @@
-# ⚙️ flowboard-api — FastAPI Backend for Kanban App
+# Flowboard API
 
-Backend API for the **Flowboard** productivity app.  
-Implements JWT authentication, board/task management, and real-time updates with WebSockets.  
-Deployed via Docker and AWS (EC2 + RDS + S3).
+FastAPI backend for the Flowboard Kanban application.
 
----
+## Overview
+This file should include:
+- Project title and description
+- Key features list
+- Technology stack
+- Prerequisites (Python version, PostgreSQL, etc.)
+- Installation instructions
+- Environment variables configuration
+- Running the application (local and Docker)
+- API documentation link (Swagger/ReDoc)
+- Database migrations guide
+- Testing instructions
+- Project structure overview
+- API endpoints documentation
+- Authentication flow
+- Deployment instructions
+- Contributing guidelines
+- License information
+- Contact information
 
-## 🚀 Features
-- JWT-based authentication (access & refresh tokens)
-- CRUD for users, boards, columns, and tasks
-- PostgreSQL + SQLAlchemy ORM + Alembic migrations
-- Real-time task updates with `python-socketio`
-- Email notifications (SES integration)
-- Dockerized + CI/CD pipeline (GitHub Actions)
+## Example Structure:
 
----
+### Features
+- JWT-based authentication with access and refresh tokens
+- User registration and management
+- Board, column, and task CRUD operations
+- Real-time updates with WebSockets
+- PostgreSQL database with SQLAlchemy ORM
+- Alembic database migrations
+- Docker containerization
+- Comprehensive API documentation
+- Unit and integration tests
 
-## 🛠️ Tech Stack
-- **Framework:** FastAPI  
-- **Database:** PostgreSQL + SQLAlchemy  
-- **Auth:** JWT (PyJWT + passlib)  
-- **Async Tasks:** Celery / RQ  
-- **Deployment:** Docker, AWS (EC2, RDS, S3)
+### Tech Stack
+- **Framework:** FastAPI
+- **Database:** PostgreSQL + SQLAlchemy
+- **Authentication:** JWT (python-jose + passlib)
+- **Server:** Uvicorn
+- **Testing:** Pytest
+- **Containerization:** Docker & Docker Compose
 
----
-
-## ⚙️ Setup (Local Dev)
+### Installation
 ```powershell
-git clone <repo-url>
+# Clone repository
+git clone <repository-url>
 cd flowboard-api
+
+# Create virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Setup environment variables
 cp .env.example .env
+# Edit .env with your configuration
+
+# Run migrations
+alembic upgrade head
+
+# Start development server
 uvicorn app.main:app --reload
 ```
-Visit `http://localhost:8000/docs` for Swagger UI.
 
----
+### API Documentation
+Once running, visit:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
-## 🐳 Docker Setup
+### Docker Setup
 ```powershell
 docker-compose up --build
-```
-
----
-
-## 📁 Folder Structure
 ```
 app/
 ├── api/

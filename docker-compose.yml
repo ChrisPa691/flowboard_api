@@ -1,25 +1,62 @@
-version: '3.8'
-services:
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: flowboard
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+# Docker Compose configuration for Flowboard API
+# This file should include:
+# - API service configuration
+# - PostgreSQL database service
+# - Redis service (optional, for caching/celery)
+# - Environment variables
+# - Volume mounts for development
+# - Network configuration
+# - Port mappings
+# - Health checks
+# - Depends_on relationships
 
-  web:
+# Example structure:
+version: '3.8'
+
+services:
+  api:
     build: .
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-    volumes:
-      - .:/app
+    container_name: flowboard-api
     ports:
       - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/flowboard
+      - SECRET_KEY=your-secret-key-change-in-production
+      - ALGORITHM=HS256
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+    volumes:
+      - ./app:/app/app  # Mount for hot reload in development
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  db:
+    image: postgres:15-alpine
+    container_name: flowboard-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=flowboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Optional: Redis for caching and background tasks
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: flowboard-redis
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
 
 volumes:
-  db-data:
+  postgres_data:

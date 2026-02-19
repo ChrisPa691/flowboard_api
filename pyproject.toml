@@ -1,9 +1,44 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+# Python project configuration file
+# This file should include:
+# - Project metadata (name, version, description, authors)
+# - Build system configuration
+# - Poetry or setuptools configuration
+# - Development dependencies
+# - Tool configurations (pytest, black, isort, mypy, ruff)
+# - Entry points
 
-[tool.poetry]
-name = "flowboard-api"
-version = "0.1.0"
-description = "FastAPI backend for Flowboard kanban app"
-authors = ["Your Name <you@example.com>"]
+# Example structure:
+# [build-system]
+# requires = ["setuptools>=68.0", "wheel"]
+# build-backend = "setuptools.build_meta"
+#
+# [project]
+# name = "flowboard-api"
+# version = "0.1.0"
+# description = "FastAPI backend for Flowboard kanban application"
+# authors = [{name = "Your Name", email = "you@example.com"}]
+# requires-python = ">=3.11"
+# dependencies = [
+#     "fastapi>=0.109.0",
+#     "uvicorn[standard]>=0.27.0",
+# ]
+#
+# [project.optional-dependencies]
+# dev = [
+#     "pytest>=7.4.0",
+#     "black>=23.0.0",
+#     "isort>=5.12.0",
+#     "mypy>=1.7.0",
+# ]
+#
+# [tool.pytest.ini_options]
+# testpaths = ["app/tests"]
+# python_files = "test_*.py"
+#
+# [tool.black]
+# line-length = 100
+# target-version = ['py311']
+#
+# [tool.isort]
+# profile = "black"
+# line_length = 100
